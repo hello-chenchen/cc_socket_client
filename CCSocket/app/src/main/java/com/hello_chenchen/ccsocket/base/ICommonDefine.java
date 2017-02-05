@@ -4,7 +4,7 @@ package com.hello_chenchen.ccsocket.base;
  * Created by root on 17-1-27.
  */
 
-public interface CommonDefine {
+public interface ICommonDefine {
 
     /**
      * 公共变量标识
