@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 SocketClient client = new SocketClient();
                 Toast.makeText(getApplicationContext(), "2",
                         Toast.LENGTH_SHORT).show();
-                int ret = client.Connect("192.168.1.101", 8000);
+                int ret = client.Connect("192.168.1.102", 5000);
                 Toast.makeText(getApplicationContext(), "" + ret,
                         Toast.LENGTH_SHORT).show();
             }
