@@ -7,8 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 //import android.widget.Toast;
 
-import com.hello_chenchen.ccsocket.base.ICommonDefine;
-import com.hello_chenchen.ccsocket.util.SocketClient;
+import com.hello_chenchen.ccsocket.common.ICommonDefine;
+import com.hello_chenchen.ccsocket.base.SocketClient;
 
 /**
  * author: hello_chenchen
@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity implements ICommonDefine{
                 onInit();
 
                 SocketClient client = new SocketClient(ipAdress, port);
-                Thread td = new Thread(client);
-                td.start();
+                Thread clientThread = new Thread(client);
+                clientThread.start();
 
             }
 

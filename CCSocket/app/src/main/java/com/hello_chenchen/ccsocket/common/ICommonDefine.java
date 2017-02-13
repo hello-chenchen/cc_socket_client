@@ -1,4 +1,4 @@
-package com.hello_chenchen.ccsocket.base;
+package com.hello_chenchen.ccsocket.common;
 
 /**
  * Created by root on 17-1-27.

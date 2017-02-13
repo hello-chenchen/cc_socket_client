@@ -1,13 +1,6 @@
-package com.hello_chenchen.ccsocket.util;
+package com.hello_chenchen.ccsocket.base;
 
-import com.hello_chenchen.ccsocket.base.ICommonDefine;
-
-import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.logging.Handler;
 
@@ -20,22 +13,26 @@ public class SocketClient implements Runnable {
 
     private String ipAdress;    //socket连接ip
     private int port;           //socket连接port
+    private Socket clientSocket;    //客户端socket
 
-    Handler handler;
+    /**
+     * @param IpAdress
+     * @param Port
+     */
+    public SocketClient(String IpAdress, int Port){
+        this.ipAdress = IpAdress;
+        this.port   = Port;
 
-    public SocketClient(String ipAdress, int port){
-        this.ipAdress = ipAdress;
-        this.port   = port;
+        try {
+            clientSocket = new Socket(this.ipAdress, this.port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void run() {
 
-        try {
-            Socket clientSocket = new Socket(ipAdress, port);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
     }
 
