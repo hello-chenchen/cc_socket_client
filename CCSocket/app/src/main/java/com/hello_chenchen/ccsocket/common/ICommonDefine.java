@@ -10,8 +10,10 @@ public interface ICommonDefine {
     /**
      * 公共变量标识
      */
-    int CC_INIT       = -1;   //初始化
+    int CC_INIT       = 0;   //初始化
     int CC_SUCCESS    = 0;    //成功
     int CC_FAIL       = 1;    //失败
+
+    int CC_SLEEPTIME = 1000;    //睡眠时间
 
 }
