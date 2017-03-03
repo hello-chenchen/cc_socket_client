@@ -31,9 +31,11 @@ public class MainActivity extends AppCompatActivity implements ICommonDefine{
             public void onClick(View v) {
                 onInit();
 
-                SocketClient client = new SocketClient(ipAdress, port);
-                Thread clientThread = new Thread(client);
-                clientThread.start();
+                SocketClient clientSocket = new SocketClient(ipAdress, port);
+                if(clientSocket.IsConnected())
+                {
+
+                }
 
             }
 

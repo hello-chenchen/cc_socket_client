@@ -9,17 +9,20 @@ import java.util.logging.Handler;
  * author: hello_chenchen
  */
 
-public class SocketClient implements Runnable {
+public class SocketClient extends Thread {
 
     private String ipAdress;    //socket连接ip
     private int port;           //socket连接port
     private Socket clientSocket;    //客户端socket
+    private Handler handler;
+    private boolean blIsConnected;
 
     /**
      * @param IpAdress
      * @param Port
      */
     public SocketClient(String IpAdress, int Port){
+        super();
         this.ipAdress = IpAdress;
         this.port   = Port;
 
@@ -28,6 +31,34 @@ public class SocketClient implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        this.start();
+    }
+
+    public void SetHandler(Handler handler)
+    {
+        this.handler = handler;
+    }
+
+    public boolean IsConnected()
+    {
+
+        if(clientSocket.isConnected())
+        {
+            blIsConnected = true;
+        }
+        else
+        {
+            blIsConnected = false;
+        }
+
+        return blIsConnected;
+
+    }
+
+    public boolean WriteBuffer()
+    {
+        return true;
     }
 
     @Override
