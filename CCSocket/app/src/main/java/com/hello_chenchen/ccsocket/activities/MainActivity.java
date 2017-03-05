@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.hello_chenchen.ccsocket.common.ICommonDefine;
 import com.hello_chenchen.ccsocket.base.SocketClient;
@@ -34,8 +35,9 @@ public class MainActivity extends AppCompatActivity implements ICommonDefine{
                 SocketClient clientSocket = new SocketClient(ipAdress, port);
                 if(clientSocket.IsConnected())
                 {
-
+                    Toast.makeText(getApplicationContext(), "chenchen", Toast.LENGTH_SHORT).show();
                 }
+
 
             }
 

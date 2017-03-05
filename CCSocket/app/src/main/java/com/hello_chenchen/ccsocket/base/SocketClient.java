@@ -26,11 +26,7 @@ public class SocketClient extends Thread {
         this.ipAdress = IpAdress;
         this.port   = Port;
 
-        try {
-            clientSocket = new Socket(this.ipAdress, this.port);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
         this.start();
     }
@@ -63,7 +59,11 @@ public class SocketClient extends Thread {
 
     @Override
     public void run() {
-
+        try {
+            clientSocket = new Socket(this.ipAdress, this.port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
