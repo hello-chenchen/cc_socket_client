@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements ICommonDefine{
         connect_btn.setOnClickListener(new View.OnClickListener() {
             String ipAdress = null;
             int port = CC_INIT;
-//            Socket clientSocket;    //客户端socket
 
             @Override
             public void onClick(View v) {
@@ -61,42 +60,7 @@ public class MainActivity extends AppCompatActivity implements ICommonDefine{
                     }
                 };
 
-//                new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        try {
-//                            clientSocket = new Socket( ipAdress, port);
-////                            if(clientSocket.isBound())
-////                            {
-//                            Toast.makeText(getApplicationContext(), "chenchen", Toast.LENGTH_SHORT).show();
-////                    Intent intent = new Intent(MainActivity.this,ClientActivity.class);
-////                    // 测试传递字符串
-////                    startActivity(intent);
-////                            }
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//
-//
-//                    }
-//
-//                }).start();
-
                 SocketClient clientSocket = new SocketClient(ipAdress, port, handler);
-
-//                Thread td = new Thread(clientSocket);
-//                td.start();
-//                Toast.makeText(getApplicationContext(), "chenchen", Toast.LENGTH_SHORT).show();
-
-//                boolean demo = clientSocket.IsSocketConnected();
-//                System.out.print(demo);
-
-//                Intent intent=new Intent(MainActivity.this,ClientActivity.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable("socketclient", clientSocket);
-//                intent.putExtras(bundle);
-//                startActivity(intent);
-
 
             }
 

@@ -1,14 +1,8 @@
 package com.hello_chenchen.ccsocket.base;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.widget.Toast;
 
-import com.hello_chenchen.ccsocket.activities.ClientActivity;
-import com.hello_chenchen.ccsocket.activities.MainActivity;
 import com.hello_chenchen.ccsocket.common.ICommonDefine;
 
 import java.io.IOException;
@@ -26,7 +20,6 @@ public class SocketClient extends Thread implements Serializable,ICommonDefine {
     private int port;           //socket连接port
     private Socket clientSocket;    //客户端socket
     private Handler handler;
-    private boolean blIsConnected;
 
     /**
      * @param IpAdress
@@ -44,11 +37,6 @@ public class SocketClient extends Thread implements Serializable,ICommonDefine {
     public void SetHandler(Handler handler)
     {
         this.handler = handler;
-    }
-
-    public boolean IsSocketConnected()
-    {
-        return blIsConnected;
     }
 
     public boolean WriteBuffer()
@@ -73,19 +61,5 @@ public class SocketClient extends Thread implements Serializable,ICommonDefine {
         }
 
     }
-
-//    private void ReceiveMsg(Socket socket)
-//    {
-//        DataInputStream input;
-//
-//        try {
-//            br = new BufferedReader(new InputStreamReader(socket.getInputStream(),"utf-8"));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        while (true){
-//
-//        }
-//    }
 
 }
