@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CCSocket</string>
+    <string name="title_activity_client2">Client2Activity</string>
 </resources>

@@ -16,4 +16,6 @@ public interface ICommonDefine {
 
     int CC_SLEEPTIME = 1000;    //睡眠时间
 
+    int CC_MAIN_TO_CLIENT_ACTIVITY = 0x001; //主界面跳转到ClientActivity
+
 }
