@@ -5,6 +5,7 @@ import android.os.Message;
 
 import com.hello_chenchen.ccsocket.common.ICommonDefine;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.Socket;
@@ -37,6 +38,20 @@ public class SocketClient extends Thread implements Serializable,ICommonDefine {
     public void SetHandler(Handler handler)
     {
         this.handler = handler;
+    }
+
+    public void SendMsg(String strMsg) throws IOException {
+        DataOutputStream dOut = new DataOutputStream(clientSocket.getOutputStream());
+
+        dOut.writeByte(1);
+        dOut.writeUTF(strMsg);
+        dOut.flush(); // Send off the data
+
+// Send the exit message
+        dOut.writeByte(-1);
+        dOut.flush();
+
+        dOut.close();
     }
 
     public boolean WriteBuffer()
