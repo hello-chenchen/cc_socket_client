@@ -27,10 +27,11 @@ public class MainActivity extends AppCompatActivity implements Serializable,ICom
 
     private void Main2ClientActivity()
     {
-                Intent intent=new Intent(MainActivity.this,ClientActivity.class);
+                Intent intent=new Intent(this,ClientActivity.class);
+                intent.putExtra("SocketClient", clientSocket);
+//                intent.putExtra("index", "1");
 //                Bundle bundle = new Bundle();
 //                bundle.putSerializable("clientSocket", (SocketClient) clientSocket);
-                intent.putExtra("clientSocket", clientSocket);
                 startActivity(intent);
     }
 
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements Serializable,ICom
                     public void handleMessage(Message msg){
                         switch(msg.what)
                         {
-                            case 0x001:
+                            case CC_MAIN_TO_CLIENT_ACTIVITY:
                                 Main2ClientActivity();
                                 break;
                             default:
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements Serializable,ICom
                 };
 
                 clientSocket = new SocketClient(ipAdress, port, handler);
+                Toast.makeText(getApplicationContext(), "ccc", Toast.LENGTH_SHORT).show();
 
             }
 
