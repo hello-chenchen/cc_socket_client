@@ -71,7 +71,7 @@ public class SocketClient extends Thread implements Serializable,ICommonDefine {
         {
             System.out.print(true);
             Message msg = new Message();
-            msg.what = 0x001;
+            msg.what = CC_MAIN_TO_CLIENT_ACTIVITY;
             handler.sendMessage(msg);
         }
 
