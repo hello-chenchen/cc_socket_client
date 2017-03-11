@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.hello_chenchen.ccsocket.base.SocketManage;
 import com.hello_chenchen.ccsocket.common.ICommonDefine;
 import com.hello_chenchen.ccsocket.base.SocketClient;
 
@@ -22,7 +23,9 @@ import java.net.Socket;
  */
 
 public class MainActivity extends AppCompatActivity implements Serializable,ICommonDefine{
-    private SocketClient clientSocket;    //客户端socket
+
+//    private SocketClient clientSocket;    //客户端socket
+    public SocketManage socketManage;
     private Handler handler;
 
     private void Main2ClientActivity()
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements Serializable,ICom
                 Intent intent=new Intent(MainActivity.this,ClientActivity.class);
 //                Bundle bundle = new Bundle();
 //                bundle.putSerializable("clientSocket", (SocketClient) clientSocket);
-                intent.putExtra("clientSocket", clientSocket);
+                intent.putExtra("clientSocket", "1");
                 startActivity(intent);
     }
 
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements Serializable,ICom
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        socketManage = new SocketManage();
 
         Button connect_btn = (Button)findViewById(R.id.connect_btn);
 
@@ -65,7 +69,9 @@ public class MainActivity extends AppCompatActivity implements Serializable,ICom
                     }
                 };
 
-                clientSocket = new SocketClient(ipAdress, port, handler);
+                SocketClient clientSocket = new SocketClient(ipAdress, port, handler);
+                socketManage = (SocketManage)getApplication();
+                socketManage.AddSocketClient(1, clientSocket);
 
             }
 
