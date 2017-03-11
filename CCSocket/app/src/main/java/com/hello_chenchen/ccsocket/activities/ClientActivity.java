@@ -17,7 +17,6 @@ import java.util.logging.Handler;
 public class ClientActivity extends AppCompatActivity implements Serializable {
 
     private SocketManage socketManage;
-//    private SocketClient socketClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +48,6 @@ public class ClientActivity extends AppCompatActivity implements Serializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-//                Message msg = new Message();
-//                msg.what = 0x123;
-//                msg.obj = content;
-//                handler.sendMessage(msg);
 
             }
         });

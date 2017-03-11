@@ -41,19 +41,16 @@ public class MainActivity extends AppCompatActivity implements Serializable,ICom
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        socketManage = new SocketManage();
 
         Button connect_btn = (Button)findViewById(R.id.connect_btn);
 
         connect_btn.setOnClickListener(new View.OnClickListener() {
             String ipAdress = null;
             int port = CC_INIT;
-//            SocketClient clientSocket;
 
             @Override
             public void onClick(View v) {
                 onInit();
-//                final Handler handler;
                 handler = new Handler() {
 
                     @Override
