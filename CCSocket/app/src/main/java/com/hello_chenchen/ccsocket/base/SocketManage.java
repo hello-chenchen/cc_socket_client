@@ -21,8 +21,6 @@ public class SocketManage extends Application {
 
     public void AddSocketClient(int key, SocketClient socketClient)
     {
-        SocketClient clientSocket = socketClient;
-
         Integer itKey = new Integer(key);
         socketMamageMap.put(itKey, socketClient);
     }
